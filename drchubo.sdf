@@ -2639,8 +2639,8 @@
         <dynamics/>
       </axis>
     </joint>
-<!--    <plugin filename="/home/student/projects/drchubo-gazebo/build/libdrchubo_plugin.so" name="drchubo_plugin" > -->
-    <plugin filename="drchubo-gazebo/build/libdrchubo_plugin.so" name="drchubo_plugin" >
+    <plugin filename="/home/student/projects/drchubo-gazebo/build/libdrchubo_plugin.so" name="drchubo_plugin" > 
+<!--    <plugin filename="drchubo-gazebo/build/libdrchubo_plugin.so" name="drchubo_plugin" >-->
        <LSP>LSP</LSP>
        <LSR>LSR</LSR>
        <LSY>LSY</LSY>
@@ -2677,6 +2677,37 @@
        <NK3>NK3</NK3>
 
        <TSY>TSY</TSY>
+
+       <RF1>RF1</RF1>
+       <RF11>RF11</RF11>
+       <RF12>RF12</RF12>
+       <RF13>RF13</RF13>
+  
+       <RF2>RF2</RF2>
+       <RF21>RF21</RF21>
+       <RF22>RF22</RF22>
+       <RF23>RF23</RF23>
+  
+       <RF3>RF3</RF3>
+       <RF31>RF31</RF31>
+       <RF32>RF32</RF32>
+       <RF33>RF33</RF33>
+
+
+       <LF1>LF1</LF1>
+       <LF11>LF11</LF11>
+       <LF12>LF12</LF12>
+       <LF13>LF13</LF13>
+       
+       <LF2>LF2</LF2>
+       <LF21>LF21</LF21>
+       <LF22>LF22</LF22>
+       <LF23>LF23</LF23>
+       
+       <LF3>LF3</LF3>
+       <LF31>LF31</LF31>
+       <LF32>LF32</LF32>
+       <LF33>LF33</LF33>
 
            
 

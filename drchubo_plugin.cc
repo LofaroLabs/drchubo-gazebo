@@ -126,6 +126,43 @@ namespace gazebo
 
           this->FindJointByParam(_sdf, this->joint_TSY_,      "TSY") &&
 
+          this->FindJointByParam(_sdf, this->joint_LF1_,      "LF1") &&
+//          this->FindJointByParam(_sdf, this->joint_LF11_,     "LF11") &&
+          this->FindJointByParam(_sdf, this->joint_LF12_,     "LF12") &&
+          this->FindJointByParam(_sdf, this->joint_LF13_,     "LF13") &&
+//          this->FindJointByParam(_sdf, this->joint_LF2_,      "LF2") &&
+          this->FindJointByParam(_sdf, this->joint_LF21_,     "LF21") &&
+          this->FindJointByParam(_sdf, this->joint_LF22_,     "LF22") &&
+          this->FindJointByParam(_sdf, this->joint_LF23_,     "LF23") &&
+//          this->FindJointByParam(_sdf, this->joint_LF3_,      "LF3") &&
+          this->FindJointByParam(_sdf, this->joint_LF31_,     "LF31") &&
+          this->FindJointByParam(_sdf, this->joint_LF32_,     "LF32") &&
+          this->FindJointByParam(_sdf, this->joint_LF33_,     "LF33") &&
+
+          this->FindJointByParam(_sdf, this->joint_LAP_,      "LAP") &&
+          this->FindJointByParam(_sdf, this->joint_LAR_,      "LAR") &&
+          this->FindJointByParam(_sdf, this->joint_LKP_,      "LKP") &&
+          this->FindJointByParam(_sdf, this->joint_LHP_,      "LHP") &&
+          this->FindJointByParam(_sdf, this->joint_LHR_,      "LHR") &&
+          this->FindJointByParam(_sdf, this->joint_LHY_,      "LHY") &&
+
+          this->FindJointByParam(_sdf, this->joint_RF1_,      "RF1") &&
+//          this->FindJointByParam(_sdf, this->joint_RF11_,     "RF11") &&
+          this->FindJointByParam(_sdf, this->joint_RF12_,     "RF12") &&
+          this->FindJointByParam(_sdf, this->joint_RF13_,     "RF13") &&
+          this->FindJointByParam(_sdf, this->joint_RF2_,      "RF2") &&
+          this->FindJointByParam(_sdf, this->joint_RF21_,     "RF21") &&
+          this->FindJointByParam(_sdf, this->joint_RF22_,     "RF22") &&
+          this->FindJointByParam(_sdf, this->joint_RF23_,     "RF23") &&
+//          this->FindJointByParam(_sdf, this->joint_RF3_,      "RF3") &&
+          this->FindJointByParam(_sdf, this->joint_RF31_,     "RF31") &&
+          this->FindJointByParam(_sdf, this->joint_RF32_,     "RF32") &&
+          this->FindJointByParam(_sdf, this->joint_RF33_,     "RF33") &&
+//          this->FindJointByParam(_sdf, this->joint_RF4_,     "RF4") &&
+//          this->FindJointByParam(_sdf, this->joint_RF41_,     "RF41") &&
+//          this->FindJointByParam(_sdf, this->joint_RF42_,     "RF42") &&
+//          this->FindJointByParam(_sdf, this->joint_RF43_,     "RF43") &&
+
           this->FindJointByParam(_sdf, this->joint_LAP_,      "LAP") &&
           this->FindJointByParam(_sdf, this->joint_LAR_,      "LAR") &&
           this->FindJointByParam(_sdf, this->joint_LKP_,      "LKP") &&
@@ -211,10 +248,39 @@ namespace gazebo
 
       this->joint_TSY_->SetMaxForce(0, maxTorque);
 
+      this->joint_LF1_->SetMaxForce(0, maxTorque);
+//      this->joint_LF11_->SetMaxForce(0, maxTorque);
+      this->joint_LF12_->SetMaxForce(0, maxTorque);
+      this->joint_LF13_->SetMaxForce(0, maxTorque);
+//      this->joint_LF2_->SetMaxForce(0, maxTorque);
+      this->joint_LF21_->SetMaxForce(0, maxTorque);
+      this->joint_LF22_->SetMaxForce(0, maxTorque);
+      this->joint_LF23_->SetMaxForce(0, maxTorque);
+//      this->joint_LF3_->SetMaxForce(0, maxTorque);
+      this->joint_LF31_->SetMaxForce(0, maxTorque);
+      this->joint_LF32_->SetMaxForce(0, maxTorque);
+      this->joint_LF33_->SetMaxForce(0, maxTorque);
 
+      this->joint_RF1_->SetMaxForce(0, maxTorque);
+//      this->joint_RF11_->SetMaxForce(0, maxTorque);
+      this->joint_RF12_->SetMaxForce(0, maxTorque);
+      this->joint_RF13_->SetMaxForce(0, maxTorque);
+      this->joint_RF2_->SetMaxForce(0, maxTorque);
+      this->joint_RF21_->SetMaxForce(0, maxTorque);
+      this->joint_RF22_->SetMaxForce(0, maxTorque);
+      this->joint_RF23_->SetMaxForce(0, maxTorque);
+//      this->joint_RF3_->SetMaxForce(0, maxTorque);
+      this->joint_RF31_->SetMaxForce(0, maxTorque);
+      this->joint_RF32_->SetMaxForce(0, maxTorque);
+      this->joint_RF33_->SetMaxForce(0, maxTorque);
+//      this->joint_RF4_->SetMaxForce(0, maxTorque);
+//      this->joint_RF41_->SetMaxForce(0, maxTorque);
+//      this->joint_RF42_->SetMaxForce(0, maxTorque);
+//      this->joint_RF43_->SetMaxForce(0, maxTorque);
 
 
       this->joint_LSP_->SetAngle(0, iniAngle);
+      //this->joint_LSP_->SetAngle(0, -0.4);
       this->joint_LSR_->SetAngle(0, iniAngle);
       this->joint_LSY_->SetAngle(0, iniAngle);
       this->joint_LEP_->SetAngle(0, iniAngle);
@@ -250,6 +316,35 @@ namespace gazebo
  
       this->joint_TSY_->SetAngle(0, iniAngle);
 
+      this->joint_LF1_->SetAngle(0, iniAngle);
+//      this->joint_LF11_->SetAngle(0, iniAngle);
+      this->joint_LF12_->SetAngle(0, iniAngle);
+      this->joint_LF13_->SetAngle(0, iniAngle);
+//      this->joint_LF2_->SetAngle(0, iniAngle);
+      this->joint_LF21_->SetAngle(0, iniAngle);
+      this->joint_LF22_->SetAngle(0, iniAngle);
+      this->joint_LF23_->SetAngle(0, iniAngle);
+//      this->joint_LF3_->SetAngle(0, iniAngle);
+      this->joint_LF31_->SetAngle(0, iniAngle);
+      this->joint_LF32_->SetAngle(0, iniAngle);
+      this->joint_LF33_->SetAngle(0, iniAngle);
+
+      this->joint_RF1_->SetAngle(0, iniAngle);
+//      this->joint_RF11_->SetAngle(0, iniAngle);
+      this->joint_RF12_->SetAngle(0, iniAngle);
+      this->joint_RF13_->SetAngle(0, iniAngle);
+      this->joint_RF2_->SetAngle(0, iniAngle);
+      this->joint_RF21_->SetAngle(0, iniAngle);
+      this->joint_RF22_->SetAngle(0, iniAngle);
+      this->joint_RF23_->SetAngle(0, iniAngle);
+//      this->joint_RF3_->SetAngle(0, iniAngle);
+      this->joint_RF31_->SetAngle(0, iniAngle);
+      this->joint_RF32_->SetAngle(0, iniAngle);
+      this->joint_RF33_->SetAngle(0, iniAngle);
+//      this->joint_RF4_->SetAngle(0, iniAngle);
+//      this->joint_RF41_->SetAngle(0, iniAngle);
+//      this->joint_RF42_->SetAngle(0, iniAngle);
+//      this->joint_RF43_->SetAngle(0, iniAngle);
 
 
 
@@ -335,6 +430,36 @@ namespace gazebo
     private: physics::JointPtr joint_NK3_;
 
     private: physics::JointPtr joint_TSY_;
+
+    private: physics::JointPtr joint_LF1_;
+//    private: physics::JointPtr joint_LF11_;
+    private: physics::JointPtr joint_LF12_;
+    private: physics::JointPtr joint_LF13_;
+//    private: physics::JointPtr joint_LF2_;
+    private: physics::JointPtr joint_LF21_;
+    private: physics::JointPtr joint_LF22_;
+    private: physics::JointPtr joint_LF23_;
+//    private: physics::JointPtr joint_LF3_;
+    private: physics::JointPtr joint_LF31_;
+    private: physics::JointPtr joint_LF32_;
+    private: physics::JointPtr joint_LF33_;
+
+    private: physics::JointPtr joint_RF1_;
+//    private: physics::JointPtr joint_RF11_;
+    private: physics::JointPtr joint_RF12_;
+    private: physics::JointPtr joint_RF13_;
+    private: physics::JointPtr joint_RF2_;
+    private: physics::JointPtr joint_RF21_;
+    private: physics::JointPtr joint_RF22_;
+    private: physics::JointPtr joint_RF23_;
+//    private: physics::JointPtr joint_RF3_;
+    private: physics::JointPtr joint_RF31_;
+    private: physics::JointPtr joint_RF32_;
+    private: physics::JointPtr joint_RF33_;
+//    private: physics::JointPtr joint_RF4_;
+//    private: physics::JointPtr joint_RF41_;
+//    private: physics::JointPtr joint_RF42_;
+//    private: physics::JointPtr joint_RF43_;
 
   };
 
