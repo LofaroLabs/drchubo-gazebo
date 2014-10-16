@@ -9,9 +9,13 @@
 #include <gazebo/transport/TransportTypes.hh>
 #include <gazebo/msgs/MessageTypes.hh>
 #include <gazebo/common/Time.hh>
+#include <time.h>
+#include <math.h>
+
+/* Required Hubo Headers */
+#include <hubo.h>
 
 // For Ach
-/*
 #include <errno.h>
 #include <fcntl.h>
 #include <assert.h>
@@ -25,15 +29,10 @@
 #include <string.h>
 
 // ach channels
-ach_channel_t chan_diff_drive_ref;      // hubo-ach
-ach_channel_t chan_time;
+ach_channel_t chan_hubo_state;      // hubo-ach
 
-int debug = 0;
-double H_ref[2] = {};
-double ttime = 0.0;
-*/
-
-
+int i = 0;
+//int r  = 0;
 
 namespace gazebo
 {   
@@ -58,23 +57,11 @@ namespace gazebo
 
     public: void Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf) 
     {
-
       // Open Ach channel
+     // Open Ach channel
         /* open ach channel */
-
-/*  --------
-        memset( &H_ref,   0, sizeof(H_ref));
-        int r = ach_open(&chan_diff_drive_ref, "robot-diff-drive" , NULL);
-        assert( ACH_OK == r );
-        ach_put(&chan_diff_drive_ref, &H_ref , sizeof(H_ref));
-
-        
-    
-        memset( &ttime,   0, sizeof(ttime));
-        r = ach_open(&chan_time, "robot-time" , NULL);
-        assert( ACH_OK == r );
-        ach_put(&chan_time, &ttime , sizeof(ttime));
------------ */
+      int r = ach_open(&chan_hubo_state, HUBO_CHAN_STATE_NAME , NULL);
+      assert( ACH_OK == r );
 
       // Store the pointer to the model
       this->model = _parent;
@@ -84,7 +71,7 @@ namespace gazebo
 
       // Get the world name.
 //      std::string worldName = _sdf->GetName();
-     this->world = physics::get_world("default");
+      this->world = physics::get_world("default");
 
 
       // Load parameters for this plugin
@@ -102,7 +89,7 @@ namespace gazebo
 //      gazebo::transport::SubscriberPtr sub = node->Subscribe("/gazebo/default/world_stats", cb);
     }
 
-    public: bool LoadParams(sdf::ElementPtr _sdf) 
+    public: bool LoadParams(sdf::ElementPtr _sdf) //assigning joints that are defined .sdf file
     {
       if (this->FindJointByParam(_sdf, this->joint_LSP_,      "LSP") &&
           this->FindJointByParam(_sdf, this->joint_LSR_,      "LSR") &&
@@ -211,7 +198,23 @@ namespace gazebo
     public: void OnUpdate()
     {
       double maxTorque = 500;
-      double iniAngle = 0.0;
+      double iniAngle = 0;
+      //double posRSP = 0;
+
+
+      /* Create initial structures to read and write from */
+      struct hubo_state H_state;
+      memset( &H_state, 0, sizeof(H_state));
+
+      /* for size check */
+      size_t fs;
+
+      /* Get the current feed-forward (state) */
+      int r = ach_get(&chan_hubo_state, &H_state, sizeof(H_state), &fs, NULL, ACH_O_LAST );
+      if(ACH_OK != r) {
+          assert( sizeof(H_state) == fs );
+      }
+
       this->joint_LSP_->SetMaxForce(0, maxTorque);
       this->joint_LSR_->SetMaxForce(0, maxTorque);
       this->joint_LSY_->SetMaxForce(0, maxTorque);
@@ -346,7 +349,9 @@ namespace gazebo
 //      this->joint_RF42_->SetAngle(0, iniAngle);
 //      this->joint_RF43_->SetAngle(0, iniAngle);
 
-
+      //i = i+1;
+      double posRSP = H_state.joint[RSP].pos;
+      //this->joint_RSP_->SetAngle(0, posRSP);
 
 /*  ---- Ach Control ---
       // Get Ach chan data
