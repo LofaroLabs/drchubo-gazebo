@@ -2639,7 +2639,7 @@
         <dynamics/>
       </axis>
     </joint>
-    <plugin filename="/home/archr/projects/drchubo-gazebo/build/libdrchubo_plugin.so" name="drchubo_plugin" > 
+    <plugin filename="/home/student/projects/drchubo-gazebo/build/libdrchubo_plugin.so" name="drchubo_plugin" > 
 <!--    <plugin filename="drchubo-gazebo/build/libdrchubo_plugin.so" name="drchubo_plugin" >-->
        <LSP>LSP</LSP>
        <LSR>LSR</LSR>
