@@ -210,10 +210,10 @@ namespace gazebo
       size_t fs;
 
       /* Get the current feed-forward (state) */
-      int r = ach_get(&chan_hubo_state, &H_state, sizeof(H_state), &fs, NULL, ACH_O_LAST );
-      if(ACH_OK != r) {
-          assert( sizeof(H_state) == fs );
-      }
+//      int r = ach_get(&chan_hubo_state, &H_state, sizeof(H_state), &fs, NULL, ACH_O_LAST );
+//      if(ACH_OK != r) {
+//          assert( sizeof(H_state) == fs );
+//      }
 
       this->joint_LSP_->SetMaxForce(0, maxTorque);
       this->joint_LSR_->SetMaxForce(0, maxTorque);
