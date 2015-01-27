@@ -286,7 +286,7 @@ namespace gazebo
       //this->joint_LSP_->SetAngle(0, -0.4);
       this->joint_LSR_->SetAngle(0, iniAngle);
       this->joint_LSY_->SetAngle(0, iniAngle);
-      this->joint_LEP_->SetAngle(0, iniAngle);
+      this->joint_LEP_->SetAngle(0, -1.1);
       this->joint_LWP_->SetAngle(0, iniAngle);
       this->joint_LWR_->SetAngle(0, iniAngle);
       this->joint_LWY_->SetAngle(0, iniAngle);
@@ -294,7 +294,7 @@ namespace gazebo
       this->joint_RSP_->SetAngle(0, iniAngle);
       this->joint_RSR_->SetAngle(0, iniAngle);
       this->joint_RSY_->SetAngle(0, iniAngle);
-      this->joint_REP_->SetAngle(0, iniAngle);
+      this->joint_REP_->SetAngle(0, -1.1);
       this->joint_RWP_->SetAngle(0, iniAngle);
       this->joint_RWR_->SetAngle(0, iniAngle);
       this->joint_RWY_->SetAngle(0, iniAngle);
