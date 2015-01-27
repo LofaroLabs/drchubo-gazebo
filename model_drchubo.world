@@ -90,12 +90,22 @@
 
 
 
+   
+   <model name="husky">
+     <include>
+         <uri>model://husky</uri>
+     </include>
+   </model>
+
     <model name="DRC-Hubo">
       <include>
         <uri>model://drchubo-gazebo</uri>
       </include>
       <pose>-2 0 0.5 0 0 0</pose>
       <plugin name="drchubo_gazebo" filename="build/libdrchubo_plugin.so"/>
-    </model>        
+    </model>       
+
+
+ 
   </world>
 </sdf>

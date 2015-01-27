@@ -1,0 +1,27 @@
+<sdf version='1.4'>
+
+  <model name='omega-hubo'>
+    <include>
+      <uri>model://husky</uri>
+    </include>
+    <joint name="hokuyo_joint" type="revolute">    
+      <parent>husky</parent>
+      <child>drchubo-gazebo</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+      </axis>
+      <model name='ohubo'>
+      <include>
+        <uri>model://drchubo-gazebo</uri>
+      </include>
+      </model>
+    </joint>
+  </model>
+</sdf>
+
+
+
