@@ -53,7 +53,7 @@ link_directories(${GAZEBO_LIBRARY_DIRS})
 #target_link_libraries(camera_dump ${GAZEBO_libraries} CameraPlugin)
 
 # compile plugin
-add_library(drcomegahubo_plugin SHARED drchubo_plugin.cc)
+add_library(drcomegahubo_plugin SHARED omegahubo_plugin.cc)
 target_link_libraries(drcomegahubo_plugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES} pthread ach)
 
 #add_library(d_simple_arm_plugin SHARED DSimpleArmPlugin.cc)
