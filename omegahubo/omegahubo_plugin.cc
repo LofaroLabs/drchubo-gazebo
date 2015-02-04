@@ -317,7 +317,7 @@ namespace gazebo
       this->joint_NK2_->SetAngle(0, iniAngle);
       this->joint_NK3_->SetAngle(0, iniAngle);
  
-      this->joint_TSY_->SetAngle(0, iniAngle);
+      this->joint_TSY_->SetAngle(0, 1.1);
 
       this->joint_LF1_->SetAngle(0, iniAngle);
 //      this->joint_LF11_->SetAngle(0, iniAngle);
