@@ -30,6 +30,7 @@
 
 // ach channels
 ach_channel_t chan_hubo_state;      // hubo-ach
+ach_channel_t chan_hubo_ref;
 
 int i = 0;
 //int r  = 0;
@@ -62,6 +63,22 @@ namespace gazebo
         /* open ach channel */
       int r = ach_open(&chan_hubo_state, HUBO_CHAN_STATE_NAME , NULL);
       assert( ACH_OK == r );
+      r = ach_open(&chan_hubo_ref, HUBO_CHAN_REF_NAME , NULL);
+      assert( ACH_OK == r );
+
+      size_t fs;
+      hubo_ref_t H_ref;
+      memset( &H_ref,   0, sizeof(H_ref));
+
+      H_ref.ref[LEB] = -1.1;
+      H_ref.ref[REB] = -1.1;
+
+      ach_put(&chan_hubo_ref, &H_ref, sizeof(H_ref));
+
+
+
+//      r = ach_get( &chan_hubo_ref, &H_ref, sizeof(H_ref), &fs, NULL, ACH_O_LAST );
+//      assert( sizeof(H_ref) == fs);
 
       // Store the pointer to the model
       this->model = _parent;
@@ -204,10 +221,14 @@ namespace gazebo
 
       /* Create initial structures to read and write from */
       struct hubo_state H_state;
+      struct hubo_ref H_ref;
       memset( &H_state, 0, sizeof(H_state));
+      memset( &H_ref, 0, sizeof(H_ref));
 
       /* for size check */
       size_t fs;
+      int r = ach_get( &chan_hubo_ref, &H_ref, sizeof(H_ref), &fs, NULL, ACH_O_COPY );
+//      assert( sizeof(H_ref) == fs);
 
       /* Get the current feed-forward (state) */
 //      int r = ach_get(&chan_hubo_state, &H_state, sizeof(H_state), &fs, NULL, ACH_O_LAST );
@@ -282,22 +303,22 @@ namespace gazebo
 //      this->joint_RF43_->SetMaxForce(0, maxTorque);
 
 
-      this->joint_LSP_->SetAngle(0, iniAngle);
+      this->joint_LSP_->SetAngle(0, H_ref.ref[LSP]);
       //this->joint_LSP_->SetAngle(0, -0.4);
-      this->joint_LSR_->SetAngle(0, iniAngle);
-      this->joint_LSY_->SetAngle(0, iniAngle);
-      this->joint_LEP_->SetAngle(0, -1.1);
-      this->joint_LWP_->SetAngle(0, iniAngle);
-      this->joint_LWR_->SetAngle(0, iniAngle);
-      this->joint_LWY_->SetAngle(0, iniAngle);
+      this->joint_LSR_->SetAngle(0, H_ref.ref[LSR]);
+      this->joint_LSY_->SetAngle(0, H_ref.ref[LSY]);
+      this->joint_LEP_->SetAngle(0, H_ref.ref[LEB]);
+      this->joint_LWP_->SetAngle(0, H_ref.ref[LWP]);
+      this->joint_LWR_->SetAngle(0, H_ref.ref[LWR]);
+      this->joint_LWY_->SetAngle(0, H_ref.ref[LWY]);
       
-      this->joint_RSP_->SetAngle(0, iniAngle);
-      this->joint_RSR_->SetAngle(0, iniAngle);
-      this->joint_RSY_->SetAngle(0, iniAngle);
-      this->joint_REP_->SetAngle(0, -1.1);
-      this->joint_RWP_->SetAngle(0, iniAngle);
-      this->joint_RWR_->SetAngle(0, iniAngle);
-      this->joint_RWY_->SetAngle(0, iniAngle);
+      this->joint_RSP_->SetAngle(0, H_ref.ref[RSP]);
+      this->joint_RSR_->SetAngle(0, H_ref.ref[RSR]);
+      this->joint_RSY_->SetAngle(0, H_ref.ref[RSY]);
+      this->joint_REP_->SetAngle(0, H_ref.ref[REB]);
+      this->joint_RWP_->SetAngle(0, H_ref.ref[RWP]);
+      this->joint_RWR_->SetAngle(0, H_ref.ref[RWR]);
+      this->joint_RWY_->SetAngle(0, H_ref.ref[RWY]);
   /*    
       this->joint_LAP_->SetAngle(0, iniAngle);
       this->joint_LAR_->SetAngle(0, iniAngle);
@@ -313,11 +334,11 @@ namespace gazebo
       this->joint_RHR_->SetAngle(0, iniAngle);
       this->joint_RHY_->SetAngle(0, iniAngle);
 */
-      this->joint_NK1_->SetAngle(0, iniAngle);
-      this->joint_NK2_->SetAngle(0, iniAngle);
-      this->joint_NK3_->SetAngle(0, iniAngle);
+      this->joint_NK1_->SetAngle(0, H_ref.ref[NKY]);
+      this->joint_NK2_->SetAngle(0, H_ref.ref[NK1]);
+      this->joint_NK3_->SetAngle(0, H_ref.ref[NK2]);
  
-      this->joint_TSY_->SetAngle(0, 1.1);
+      this->joint_TSY_->SetAngle(0, H_ref.ref[WST]);
 
       this->joint_LF1_->SetAngle(0, iniAngle);
 //      this->joint_LF11_->SetAngle(0, iniAngle);
