@@ -2,7 +2,8 @@
   <model name='omega-hubo'>
     <pose>0 0 1.18 0 -0 0</pose>
     <include>
-      <uri>model://husky</uri>
+      <uri>model://drchubohusky</uri>
+<!--      <uri>model://husky</uri> -->
       <pose>-0.5 0 -0.75 0 -0 0</pose>
     </include>
     <joint name="omega_wst" type="revolute">
