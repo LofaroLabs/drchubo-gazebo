@@ -5,7 +5,104 @@
       <uri>model://drchubohusky</uri>
 <!--      <uri>model://husky</uri> -->
       <pose>-0.5 0 -0.75 0 -0 0</pose>
+<!--      <pose>-0.5 0 -0.65 0 -0 0</pose> -->
     </include>
+
+
+
+<!-- new waist -->
+    <joint name="omega_wst_y" type="revolute">
+      <parent>husky::base_link</parent>
+      <child>new_wst</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+      </axis>
+
+    </joint>
+
+  <link name="new_wst">
+    <pose>-0.05 0 -0.4 0.2 0 1.5707</pose>
+    <collision name="collision">
+      <geometry>
+        <cylinder>
+          <radius>.1</radius>
+          <length>.05</length>
+        </cylinder>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <geometry>
+        <cylinder>
+          <radius>.03</radius>
+          <length>.5</length>
+        </cylinder>
+      </geometry>
+    </visual>
+  </link>
+
+
+
+
+<!-- back computer --> 
+
+    <joint name="omega_computer" type="revolute">
+      <parent>husky::base_link</parent>
+      <child>new_computer</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+      </axis>
+
+    </joint>
+
+  <link name="new_computer">
+    <pose>-0.6 0 -0.4 0 0 0</pose>
+
+    <inertial>
+        <mass>18.0</mass>
+    </inertial>
+
+    <collision name="collision">
+      <geometry>
+        <cylinder>
+          <radius>.1</radius>
+          <length>.05</length>
+        </cylinder>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.2 .4 .2</size>
+        </box>
+      </geometry>
+    <material>
+      <script>
+        <name>Gazebo/Black</name>
+      </script>
+
+<!--
+      <ambient>1 0 0 1</ambient>
+      <diffuse>1 0 0 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <emissive>0 0 0 0</emissive>
+-->
+    </material>
+
+    </visual>
+</link>
+
+<!-- DRC hubo -->
+
+
+
     <joint name="omega_wst" type="revolute">
       <parent>husky::base_link</parent>
       <child>Body_Torso</child>
