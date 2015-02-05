@@ -1,0 +1,18 @@
+<sdf version='1.4'>
+
+  <model name='omega-hubo'>
+    <include>
+      <uri>model://husky</uri>
+    </include>
+    
+    <include>
+      <uri>model://drchubo-gazebo</uri>
+    </include>
+    <child>drchubo-gazebo::link</child>
+    <parent>husky</parent>
+
+  </model>
+</sdf>
+
+
+

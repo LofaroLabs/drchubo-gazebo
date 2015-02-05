@@ -56,5 +56,8 @@ link_directories(${GAZEBO_LIBRARY_DIRS})
 add_library(drcomegahubo_plugin SHARED omegahubo_plugin.cc)
 target_link_libraries(drcomegahubo_plugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES} pthread ach)
 
+add_library(drcomegahubohusky_plugin SHARED omegahubohusky_plugin.cc)
+target_link_libraries(drcomegahubohusky_plugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES} pthread ach)
+
 #add_library(d_simple_arm_plugin SHARED DSimpleArmPlugin.cc)
 #target_link_libraries(d_simple_arm_plugin ${GAZEBO_libraries} ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES} pthread ach)

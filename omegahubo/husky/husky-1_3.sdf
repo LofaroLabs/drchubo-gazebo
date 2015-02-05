@@ -33,7 +33,7 @@
       <visual name='base'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
-          <mesh><uri>model://husky/meshes/base_link.stl</uri></mesh>
+          <mesh><uri>model://drchubohusky/meshes/base_link.stl</uri></mesh>
         </geometry>
         <material>
           <script>
@@ -46,7 +46,7 @@
       <visual name='top_plate'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
-          <mesh><uri>model://husky/meshes/top_plate.stl</uri></mesh>
+          <mesh><uri>model://drchubohusky/meshes/top_plate.stl</uri></mesh>
         </geometry>
         <material>
           <script>
@@ -59,7 +59,7 @@
       <visual name='front_bumper'>
         <pose>0.47 0 0.091 0 0 0</pose>
         <geometry>
-          <mesh><uri>model://husky/meshes/bumper.stl</uri></mesh>
+          <mesh><uri>model://drchubohusky/meshes/bumper.stl</uri></mesh>
         </geometry>
         <material>
           <script>
@@ -72,7 +72,7 @@
       <visual name='rear_bumper'>
         <pose>-0.47 0 0.091 0 0 3.141</pose>
         <geometry>
-          <mesh><uri>model://husky/meshes/bumper.stl</uri></mesh>
+          <mesh><uri>model://drchubohusky/meshes/bumper.stl</uri></mesh>
         </geometry>
         <material>
           <script>
@@ -85,7 +85,7 @@
       <visual name='user_rail'>
         <pose>0.272 0 0.245 0 0 0</pose>
         <geometry>
-          <mesh><uri>model://husky/meshes/user_rail.stl</uri></mesh>
+          <mesh><uri>model://drchubohusky/meshes/user_rail.stl</uri></mesh>
         </geometry>
         <material>
           <script>
@@ -132,7 +132,7 @@
       <visual name='back_left_wheel'>
         <pose>0 0 0 -3.14159 0 0</pose>
         <geometry>
-          <mesh><uri>model://husky/meshes/wheel.stl</uri></mesh>
+          <mesh><uri>model://drchubohusky/meshes/wheel.stl</uri></mesh>
         </geometry>
         <material>
           <script>
@@ -190,7 +190,7 @@
       <visual name='back_right_wheel'>
         <pose>0 0 0 -3.14159 0 0</pose>
         <geometry>
-          <mesh><uri>model://husky/meshes/wheel.stl</uri></mesh>
+          <mesh><uri>model://drchubohusky/meshes/wheel.stl</uri></mesh>
         </geometry>
         <material>
           <script>
@@ -248,7 +248,7 @@
       <visual name='front_left_wheel'>
         <pose>0 0 0 -3.14159 0 0</pose>
         <geometry>
-          <mesh><uri>model://husky/meshes/wheel.stl</uri></mesh>
+          <mesh><uri>model://drchubohusky/meshes/wheel.stl</uri></mesh>
         </geometry>
         <material>
           <script>
@@ -306,7 +306,7 @@
       <visual name='front_right_wheel'>
         <pose>0 0 0 -3.14159 0 0</pose>
         <geometry>
-          <mesh><uri>model://husky/meshes/wheel.stl</uri></mesh>
+          <mesh><uri>model://drchubohusky/meshes/wheel.stl</uri></mesh>
         </geometry>
         <material>
           <script>
@@ -326,7 +326,9 @@
             <erp>0.900000</erp>
       </limit></ode></physics>
     </joint>
-    <plugin name="husky_diff_controller" filename="libhusky_gazebo_plugins.so">
+<!--    <plugin name="husky_diff_controller" filename="libhusky_gazebo_plugins.so">
+-->
+<plugin name="husky_diff_controller" filename="/home/student/projects/drchubo-gazebo/omegahubo/build/libdrcomegahubohusky_plugin.so">
       <alwaysOn>true</alwaysOn>
       <updateRate>100.0</updateRate>
       <backLeftJoint>back_left_joint</backLeftJoint>
